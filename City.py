@@ -2,7 +2,7 @@ from typing import List
 
 class City:
 
-    def __init__(self,name,neighbors: List[str][int],heuristhic  : int):
+    def __init__(self,name, neighbors, heuristhic: int):
 
         '''
 
@@ -37,4 +37,4 @@ class City:
         self.heuristhic=newHeuristhicValue
 
     def __str__(self):
-        return "\nCity Name: "+self.cityName+"\tHeuristhic: "+self.heuristhic+"\tNeighbors: "+self.cityNeighbors
+        return "\nCity Name: "+self.cityName+"\tHeuristhic: "+str(self.heuristhic)+"\tNeighbors: "+str(self.cityNeighbors)

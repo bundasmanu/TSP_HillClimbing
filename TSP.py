@@ -4,7 +4,7 @@ from typing import List
 
 class TSP:
 
-    def __init__(self, cities : List[City.City], **dadosTSP):
+    def __init__(self, cities : List[City.City]):
 
         '''
 
@@ -14,16 +14,9 @@ class TSP:
         '''
 
         self.cities=cities
-        self.goal=dadosTSP.get(Utils.Utils.GOAL)
 
     def getCities(self):
         return self.cities
-
-    def getGoal(self):
-        return self.goal
-
-    def setNewGoal(self,newGoal):
-        self.goal=newGoal
 
     def distanceBetweenTwoCities(self, actualCity : City.City, neighborCity: City.City):
 
