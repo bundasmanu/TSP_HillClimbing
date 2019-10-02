@@ -20,10 +20,10 @@ class TSP:
 
     def distanceBetweenTwoCities(self, actualCity : City.City, neighborCity: City.City):
 
-        numberLines=len(actualCity)/2
+        numberLines=len(actualCity.getCityNeighbors())
 
         for i in range(numberLines):
-            for j in 0:
+            for j in range(1):
                 if actualCity.getCityNeighbors()[i][j] == neighborCity.getName():
                     return actualCity.getCityNeighbors()[i][1]
         return -1

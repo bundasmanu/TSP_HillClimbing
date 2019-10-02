@@ -58,7 +58,11 @@ def main():
     '''
     Implementacao do método do Trepa Colinas
     '''
+    hillClimb=HillClimbing.HillClimbing(problema)
 
+    bestCost=hillClimb.hillClimbing('A')
+
+    print(bestCost)
 
 if __name__ == "__main__":
     main()

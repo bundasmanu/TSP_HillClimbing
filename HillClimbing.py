@@ -5,7 +5,7 @@ class HillClimbing:
     def __init__(self, problem: TSP.TSP): #--> Declaracao do tipo de variavel, possível a partir do python 3
         self.myProblem=problem
 
-    def hillClimbing(self,initialNodeName,finalNodeName,numberIterations):
+    def hillClimbing(self,initialNodeName):
 
         city=self.getSpecificCity(initialNodeName)
         heuristic=city.getHeuristhic()
@@ -13,9 +13,12 @@ class HillClimbing:
 
         while heuristic != 0:
             neighborCity=self.chooseNeighbor(city)
-            if heuristic <= neighborCity.getHeuristhic():
+            if heuristic >= neighborCity.getHeuristhic():
                 cost+=self.myProblem.distanceBetweenTwoCities(city,neighborCity)
+                heuristic=neighborCity.getHeuristhic()
                 city=neighborCity
+            else: # --> Caso nao entre no if, fica pendurado naquela cidade, e para evitar loop infinito retorna logo
+                return cost
         return cost
 
     def getSpecificCity(self, nodeName):
@@ -34,11 +37,11 @@ class HillClimbing:
         :return: -->Retorno do vizinho que apresenta melhor qualidade de todos
         '''
 
-        numberLines=len(city.getCityNeighbors())/2
+        numberLines=len(city.getCityNeighbors())
         bestNeighbor = self.getSpecificCity(city.getCityNeighbors()[0][0])
 
-        for i in range(1,numberLines):
-            for j in 0 :
+        for i in range(1,(numberLines)):
+            for j in range(1) : #--> So conta o 0
                 neighborCity=self.getSpecificCity(city.getCityNeighbors()[i][j])
                 if neighborCity.getHeuristhic() < bestNeighbor.getHeuristhic():
                     bestNeighbor =neighborCity
