@@ -60,9 +60,9 @@ def main():
     '''
     hillClimb=HillClimbing.HillClimbing(problema)
 
-    bestCost=hillClimb.hillClimbing('A')
+    bestCost,percurso=hillClimb.hillClimbing('A')
 
-    print(bestCost)
+    print(bestCost,percurso)
 
 if __name__ == "__main__":
     main()

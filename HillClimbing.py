@@ -10,16 +10,18 @@ class HillClimbing:
         city=self.getSpecificCity(initialNodeName)
         heuristic=city.getHeuristhic()
         cost = 0
+        route=[city.getName()]
 
         while heuristic != 0:
             neighborCity=self.chooseNeighbor(city)
             if heuristic >= neighborCity.getHeuristhic():
                 cost+=self.myProblem.distanceBetweenTwoCities(city,neighborCity)
                 heuristic=neighborCity.getHeuristhic()
+                route.append(neighborCity.getName())
                 city=neighborCity
             else: # --> Caso nao entre no if, fica pendurado naquela cidade, e para evitar loop infinito retorna logo
-                return cost
-        return cost
+                return cost,route
+        return cost,route
 
     def getSpecificCity(self, nodeName):
 
