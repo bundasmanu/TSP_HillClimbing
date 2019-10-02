@@ -11,9 +11,9 @@ def configureValues():
     cityNames=['A','B','C','D']
     heuristicValues=[5,3,2,0]
 
-    cityANeighbors=[['b',2],['c',1]]
-    cityBNeighbors = [['c', 3], ['d', 5]]
-    cityCNeighbors = [['b', 3], ['d', 5]]
+    cityANeighbors=[['B',2],['C',1]]
+    cityBNeighbors = [['C', 3], ['D', 5]]
+    cityCNeighbors = [['B', 3], ['D', 5]]
 
     return cityNames,heuristicValues,cityANeighbors,cityBNeighbors,cityCNeighbors
 
@@ -52,6 +52,13 @@ def main():
     '''
     Criacao do meu objeto TSP--> representante do problema em questao, agregando as cidades existentes 
     '''
+
+    problema=TSP.TSP(cityArray)
+
+    '''
+    Implementacao do método do Trepa Colinas
+    '''
+
 
 if __name__ == "__main__":
     main()
